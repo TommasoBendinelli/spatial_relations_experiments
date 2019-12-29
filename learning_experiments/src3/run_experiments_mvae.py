@@ -71,5 +71,5 @@ if __name__ == "__main__":
 		with open(osp.join(config['--output_dir'], "args.json"), 'w') as f:
 			json.dump(config, f, indent=2)
 
-		params = ["python", "src/train_mvae.py"] + list(chain(*list(zip(list(config.keys()), list(config.values())))))
+		params = ["python", "src3/train_mvae.py"] + list(chain(*list(zip(list(config.keys()), list(config.values())))))
 		subprocess.call(params)
