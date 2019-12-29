@@ -96,8 +96,8 @@ def main():
     models_folder = os.path.join(args.output_dir, "models")
 
     n_obj = 4
-    folder = 'clevr_data_128_'+str(n_obj)+'_obj'
-    folder_names = [osp.join(folder, folder+'_'+str(i)) for i in range(150, 170)]
+    folder = 'dataset/clevr_data_128_'+str(n_obj)+'_obj'
+    folder_names = [osp.join(folder, folder+'_'+str(i)) for i in range(0, 19)]
 
     # n_obj = 3
     # folder = 'clevr_data_128_'+str(n_obj)+'_obj'
