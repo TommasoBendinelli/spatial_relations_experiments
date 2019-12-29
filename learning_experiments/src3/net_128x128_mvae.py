@@ -264,7 +264,7 @@ class Conv_MVAE(chainer.Chain):
 
         image_size = 128
 
-    	a = cp.linspace(-1, 1, image_size)
+        a = cp.linspace(-1, 1, image_size)
     	b = cp.linspace(-1, 1, image_size)
 
     	x, y = cp.meshgrid(a, b)
