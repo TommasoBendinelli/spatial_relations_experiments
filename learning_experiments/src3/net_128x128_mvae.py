@@ -265,28 +265,28 @@ class Conv_MVAE(chainer.Chain):
         image_size = 128
 
         a = cp.linspace(-1, 1, image_size)
-    	b = cp.linspace(-1, 1, image_size)
+        b = cp.linspace(-1, 1, image_size)
 
-    	x, y = cp.meshgrid(a, b)
+        x, y = cp.meshgrid(a, b)
 
-    	x = x.reshape(image_size, image_size, 1)
-    	y = y.reshape(image_size, image_size, 1)
+        x = x.reshape(image_size, image_size, 1)
+        y = y.reshape(image_size, image_size, 1)
 
-    	batchsize = len(latent)
+        batchsize = len(latent)
 
-    	xy = cp.concatenate((x,y), axis=-1)
-    	xy_tiled = cp.tile(xy, (batchsize, 1, 1, 1)).astype(cp.float32)
+        xy = cp.concatenate((x,y), axis=-1)
+        xy_tiled = cp.tile(xy, (batchsize, 1, 1, 1)).astype(cp.float32)
 
-    	latent_tiled = F.tile(latent, (1, 1, image_size*image_size)).reshape(batchsize, image_size, image_size, self.latent_n)
-    	latent_and_xy = F.concat((latent_tiled, xy_tiled), axis=-1)
-    	latent_and_xy = F.swapaxes(latent_and_xy, 1, 3)
+        latent_tiled = F.tile(latent, (1, 1, image_size*image_size)).reshape(batchsize, image_size, image_size, self.latent_n)
+        latent_and_xy = F.concat((latent_tiled, xy_tiled), axis=-1)
+        latent_and_xy = F.swapaxes(latent_and_xy, 1, 3)
 
-    	sp_3_decoded = F.relu(self.sp_dec_3(latent_and_xy))
+        sp_3_decoded = F.relu(self.sp_dec_3(latent_and_xy))
         sp_2_decoded = F.relu(self.sp_dec_2(sp_3_decoded))
-    	sp_1_decoded = F.relu(self.sp_dec_1(sp_2_decoded))
-    	out_img = self.sp_dec_0(sp_1_decoded)
+        sp_1_decoded = F.relu(self.sp_dec_1(sp_2_decoded))
+        out_img = self.sp_dec_0(sp_1_decoded)
 
-    	# need the check because the bernoulli_nll has a sigmoid in it
+        # need the check because the bernoulli_nll has a sigmoid in it
         if sigmoid:
             return F.sigmoid(out_img)
         else:
