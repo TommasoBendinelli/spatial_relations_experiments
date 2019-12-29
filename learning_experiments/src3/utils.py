@@ -60,7 +60,7 @@ def clear_last_results(folder_name=None):
 
     # subfolders = ["scatter", "reconstruction_arrays"]
     # for subfolder in subfolders:
-	   #  map(lambda x : os.remove(osp.join(folder_name, subfolder, x)), os.listdir(osp.join(folder_name, subfolder)))
+       #  map(lambda x : os.remove(osp.join(folder_name, subfolder, x)), os.listdir(osp.join(folder_name, subfolder)))
 
     # leftover_folders = list(filter(lambda filename : filename != "models", os.listdir(folder_name)))
     # map(lambda x : shutil.rmtree(folder_name + x), leftover_folders)
@@ -255,7 +255,7 @@ def attach_colors(labels=None, n_groups=None, composite=True):
 
     colors = ['c', 'b', 'g', 'y', 'k', 'orange', 'maroon', 'lime', 'salmon', 
               'crimson', 'gold', 'coral', 'navy', 'purple', 'olive', 'r', 'yellowgreen', 'brown', 'indigo', 'teal', 'turquoise',
-		'r','g','b','orange','y','c','k']
+        'r','g','b','orange','y','c','k']
     result = {"singular":{}, "composite":{}}
 
     counter = 0
