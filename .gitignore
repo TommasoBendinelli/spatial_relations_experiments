@@ -144,8 +144,9 @@ learning_experiments/notebooks/*
 *.tar
 *.tar.gz
 
-# ignore .idea folder
+# ignore visual studio stuff 
 .idea/
+*.code-workspace
 
 # ignore apple stuff
 *.DS_Store
