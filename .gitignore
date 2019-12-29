@@ -143,3 +143,9 @@ learning_experiments/notebooks/*
 *.npy
 *.tar
 *.tar.gz
+
+# ignore .idea folder
+.idea/
+
+# ignore apple stuff
+*.DS_Store
