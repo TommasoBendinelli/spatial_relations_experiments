@@ -44,7 +44,7 @@ class Operator(chainer.Chain):
             self.operator_mu = L.Linear(self.n_hidden, self.embed_size)
             self.operator_ln_var = L.Linear(self.n_hidden, self.embed_size)
 
-            self.deoperator_0 = L.Linear(group_n + input_channels / 2, 3)
+            self.deoperator_0 = L.Linear(group_n + input_channels // 2, 3)
 
 
     def __call__(self, z_concat):
