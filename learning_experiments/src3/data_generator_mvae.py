@@ -119,8 +119,6 @@ class DataGenerator(object):
                     data = np.load(osp.join(folder_name_train_arr, array_name))['arr_0']
                     scene_file = open(osp.join(folder_name_train_scenes, array_name.replace('.npz', '.json')), "r")
                     json_data = json.load(scene_file)
-                    import pdb
-                    pdb.set_trace()
                     scene_objs = json_data['objects']
                     rels = json_data['relationships']
 
